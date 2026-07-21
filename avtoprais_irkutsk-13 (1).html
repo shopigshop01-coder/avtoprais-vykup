@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>АвтоПрайс Иркутск – Выкуп авто | ИИ-оценка за 60 секунд</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#C0392B;--red-dark:#96281b;--red-light:#f9eceb;--black:#111;--gray:#f4f4f4;--gray-mid:#e0e0e0;--text:#222;--muted:#777;--white:#fff}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);line-height:1.6}
+nav{position:sticky;top:0;z-index:200;background:var(--black);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:62px;border-bottom:2px solid var(--red)}
+.nav-logo{font-family:'Oswald',sans-serif;font-size:1.35rem;font-weight:700;color:var(--red);letter-spacing:1px;text-decoration:none}
+.nav-logo span{color:#fff}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{color:#ccc;text-decoration:none;font-size:0.82rem;font-weight:500;letter-spacing:.5px;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--red)}
+.nav-phone{color:#fff;font-weight:600;font-size:.95rem;text-decoration:none;border:1.5px solid var(--red);padding:.4rem 1rem;transition:background .2s}
+.nav-phone:hover{background:var(--red)}
+@media(max-width:768px){.nav-links{display:none}.nav-phone{font-size:.82rem;padding:.3rem .7rem}}
+.hero{min-height:95vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:5rem 2rem 3rem}
+.hero-bg{position:absolute;inset:0;background:#0a0a0a}
+.hero-bg-img{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1600&q=80') center/cover no-repeat;opacity:.18}
+.hero-stripe{position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--red)}
+.hero-content{position:relative;z-index:2;max-width:680px}
+.hero-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:1rem}
+.hero h1{font-family:'Oswald',sans-serif;font-size:clamp(3rem,6.5vw,5.5rem);font-weight:700;line-height:.95;color:#fff;margin-bottom:1.5rem}
+.hero h1 em{color:var(--red);font-style:normal}
+.hero-sub{font-size:1.05rem;color:#aaa;max-width:460px;margin-bottom:2.5rem;line-height:1.7}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.btn-red{display:inline-flex;align-items:center;gap:.5rem;background:var(--red);color:#fff;font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:.9rem 2rem;text-decoration:none;transition:background .2s,transform .1s}
+.btn-red:hover{background:var(--red-dark);transform:translateY(-1px)}
+.btn-tg{display:inline-flex;align-items:center;gap:.5rem;background:#0088cc;color:#fff;font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:.9rem 2rem;text-decoration:none;transition:background .2s}
+.btn-tg:hover{background:#006fa3}
+.btn-outline{display:inline-flex;align-items:center;gap:.5rem;border:1.5px solid #555;color:#ccc;font-size:.9rem;padding:.88rem 1.8rem;text-decoration:none;transition:border-color .2s,color .2s}
+.btn-outline:hover{border-color:var(--red);color:var(--red)}
+.btn-wa{display:inline-flex;align-items:center;gap:.5rem;background:#25D366;color:#fff;font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:.9rem 2rem;text-decoration:none;transition:background .2s}
+.btn-wa:hover{background:#1da851}
+.btn-tg2{display:inline-flex;align-items:center;gap:.5rem;background:#0088cc;color:#fff;font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:.9rem 2rem;text-decoration:none;transition:background .2s}
+.btn-tg2:hover{background:#006fa3}
+.hero-badges{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem}
+.badge{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#ccc;font-size:.78rem;padding:.4rem .9rem}
+.hero-big{position:absolute;right:3%;bottom:3%;font-family:'Oswald',sans-serif;font-size:clamp(5rem,14vw,12rem);font-weight:700;color:rgba(255,255,255,.025);line-height:1;user-select:none;pointer-events:none}
+.section{padding:5rem 2rem}
+.section-inner{max-width:1100px;margin:0 auto}
+.s-label{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);border-left:3px solid var(--red);padding-left:.75rem;margin-bottom:.75rem}
+.s-title{font-family:'Oswald',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;line-height:1.1;margin-bottom:2.5rem}
+.eval-section{background:var(--black);padding:5rem 2rem;position:relative;overflow:hidden}
+.eval-section::before{content:'ИИ';position:absolute;right:-2%;top:-5%;font-family:'Oswald',sans-serif;font-size:20rem;font-weight:700;color:rgba(192,57,43,.04);pointer-events:none;user-select:none}
+.eval-wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;max-width:1000px}
+@media(max-width:700px){.eval-wrap{grid-template-columns:1fr}}
+.eval-info{color:#ccc}
+.eval-info h3{font-family:'Oswald',sans-serif;font-size:1.3rem;color:#fff;margin-bottom:1rem}
+.eval-info ul{list-style:none;margin-bottom:1.5rem}
+.eval-info ul li{padding:.5rem 0;border-bottom:1px solid #222;font-size:.9rem;color:#aaa}
+.eval-info ul li::before{content:'✓ ';color:var(--red);font-weight:700}
+.eval-note{background:#1a1a1a;border-left:3px solid var(--red);padding:1rem 1.2rem;font-size:.85rem;color:#999}
+.eval-tg-btn{width:100%;background:#0088cc;color:#fff;font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:.8rem;border:none;cursor:pointer;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:.5rem;text-decoration:none;transition:background .2s}
+.eval-tg-btn:hover{background:#006fa3}
+@keyframes spin{to{transform:rotate(360deg)}}
+.catalog-section{background:var(--gray);padding:5rem 2rem}
+.cat-tabs{display:flex;gap:0;margin-bottom:2.5rem;flex-wrap:wrap}
+.cat-tab{background:var(--white);border:1px solid var(--gray-mid);padding:.6rem 1.4rem;cursor:pointer;font-size:.85rem;font-weight:600;color:var(--muted);transition:all .2s;text-transform:uppercase;letter-spacing:.5px}
+.cat-tab.active,.cat-tab:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.cars-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem}
+.car-card{background:var(--white);border:1px solid var(--gray-mid);overflow:hidden;transition:transform .2s,box-shadow .2s}
+.car-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.1)}
+.car-img{width:100%;height:200px;object-fit:cover;display:block;background:#ddd}
+.car-info{padding:1.2rem}
+.car-tag{display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:.25rem .7rem;margin-bottom:.75rem}
+.car-tag.cheap{background:#e8f5e9;color:#2e7d32}
+.car-tag.mid{background:#fff3e0;color:#e65100}
+.car-tag.premium{background:#f3e5f5;color:#6a1b9a}
+.car-tag.smashed{background:#ffebee;color:#c62828}
+.car-tag.import{background:#e3f2fd;color:#1565c0}
+.car-name{font-family:'Oswald',sans-serif;font-size:1.15rem;font-weight:600;margin-bottom:.3rem}
+.car-year{font-size:.82rem;color:var(--muted);margin-bottom:.75rem}
+.car-price{font-family:'Oswald',sans-serif;font-size:1.5rem;font-weight:700;color:var(--red)}
+.car-price span{font-size:.8rem;color:var(--muted);font-family:'Inter',sans-serif;font-weight:400}
+.import-section{background:var(--black);padding:5rem 2rem}
+.import-section .s-title{color:#fff}
+.import-section .s-label{color:var(--red);border-color:var(--red)}
+.countries-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:#222;border:1px solid #222;margin-bottom:2rem}
+.country-box{background:#111;padding:1.5rem;text-align:center;transition:background .2s}
+.country-box:hover{background:#1a1a1a}
+.country-flag{font-size:2rem;margin-bottom:.5rem}
+.country-name{font-family:'Oswald',sans-serif;font-size:1rem;color:#fff}
+.country-sub{font-size:.78rem;color:#666;margin-top:.25rem}
+.import-cta{text-align:center;margin-top:2rem}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--gray-mid);border:1px solid var(--gray-mid)}
+.why-card{background:var(--white);padding:2rem 1.5rem}
+.why-num{font-family:'Oswald',sans-serif;font-size:2.5rem;font-weight:700;color:var(--red);line-height:1;margin-bottom:.75rem}
+.why-card h3{font-size:1rem;font-weight:600;margin-bottom:.5rem}
+.why-card p{font-size:.88rem;color:var(--muted);line-height:1.6}
+.section-dark{background:var(--black);color:#fff;padding:5rem 2rem}
+.section-dark .s-title{color:#fff}
+.how-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.how-step{padding:2rem 1.5rem;border-top:1px solid #2a2a2a}
+.step-num{font-family:'Oswald',sans-serif;font-size:3.5rem;font-weight:700;color:var(--red);opacity:.25;line-height:1;margin-bottom:.5rem}
+.how-step h3{font-size:1rem;color:#fff;margin-bottom:.5rem}
+.how-step p{font-size:.87rem;color:#777}
+.contact-section{background:var(--gray);padding:5rem 2rem}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;max-width:900px;margin:0 auto}
+@media(max-width:640px){.contact-grid{grid-template-columns:1fr}}
+.contact-row{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.25rem}
+.c-icon{width:36px;height:36px;min-width:36px;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:1rem}
+.contact-row p{font-size:.88rem;color:var(--muted);margin-bottom:.15rem}
+.contact-row a,.contact-row strong{font-weight:600;color:var(--black);text-decoration:none;font-size:1rem}
+.contact-row a:hover{color:var(--red)}
+.social-link{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;background:#fff;border-left:3px solid var(--red);text-decoration:none;color:var(--text);font-weight:500;font-size:.9rem;margin-bottom:.75rem;transition:background .15s}
+.social-link:hover{background:var(--red-light)}
+.cta-strip{background:var(--red);padding:4rem 2rem;text-align:center}
+.cta-strip h2{font-family:'Oswald',sans-serif;font-size:clamp(1.6rem,4vw,2.5rem);color:#fff;margin-bottom:.5rem}
+.cta-strip p{color:rgba(255,255,255,.75);margin-bottom:1.5rem;font-size:1rem}
+.btn-white{background:#fff;color:var(--red);font-family:'Oswald',sans-serif;font-weight:700;font-size:1rem;letter-spacing:1px;text-transform:uppercase;padding:.9rem 2.5rem;text-decoration:none;display:inline-block;margin:.4rem;transition:background .15s}
+.btn-white:hover{background:#eee}
+.btn-white-tg{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6);font-family:'Oswald',sans-serif;font-weight:600;font-size:1rem;letter-spacing:1px;text-transform:uppercase;padding:.9rem 2.5rem;text-decoration:none;display:inline-block;margin:.4rem;transition:all .15s}
+.btn-white-tg:hover{background:rgba(255,255,255,.1)}
+footer{background:#0a0a0a;padding:2rem;text-align:center;color:#444;font-size:.82rem;border-top:1px solid #1a1a1a}
+footer span{color:var(--red)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">АвтоПрайс <span>Иркутск</span></a>
+  <ul class="nav-links">
+    <li><a href="#evaluate">Оценить авто</a></li>
+    <li><a href="#catalog">Каталог</a></li>
+    <li><a href="#import">Авто из-за рубежа</a></li>
+    <li><a href="#contact">Контакты</a></li>
+  </ul>
+  <a href="tel:+79148999088" class="nav-phone">📞 +7 914 899-90-88</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-bg-img"></div>
+  <div class="hero-stripe"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">🚗 АвтоПрайс Иркутск — выкуп автомобилей</p>
+    <h1>Продайте авто<br>за <em>1 час.</em><br>Честно.</h1>
+    <p class="hero-sub">ИИ-оценка по всем рыночным площадкам за 60 секунд. Любые авто — битые, кредитные, японские, европейские. Полный расчёт в день обращения.</p>
+    <div class="hero-cta">
+      <a href="#evaluate" class="btn-red">🤖 Оценить авто за 60 сек</a>
+      <a href="https://t.me/best_services_in_one_place_bot" target="_blank" class="btn-tg">✈️ Бот в Telegram</a>
+      <a href="tel:+79148999088" class="btn-outline">📞 Позвонить</a>
+      <a href="https://wa.me/79500702992" target="_blank" class="btn-wa">💬 WhatsApp</a>
+      <a href="https://t.me/+79500702992" target="_blank" class="btn-tg2">✈️ Telegram</a>
+    </div>
+    <div class="hero-badges">
+      <span class="badge">✓ Любое состояние</span>
+      <span class="badge">✓ Авто из Японии, Кореи, Европы</span>
+      <span class="badge">✓ Выезд бесплатно</span>
+      <span class="badge">✓ Расчёт в день</span>
+    </div>
+  </div>
+  <div class="hero-big">038</div>
+</section>
+
+<!-- ОЦЕНКА АВТО -->
+<section class="eval-section" id="evaluate">
+  <div class="section-inner">
+    <div class="s-label" style="color:var(--red);border-color:var(--red)">Оценка автомобиля — бесплатно</div>
+    <h2 class="s-title" style="color:#fff;margin-bottom:2.5rem">Узнайте цену вашего авто<br>прямо сейчас</h2>
+    <div class="eval-wrap">
+
+      <div style="background:#0d0d0d;border:1px solid #C0392B;overflow:hidden">
+        <div style="background:#C0392B;padding:14px 20px;display:flex;align-items:center;gap:10px">
+          <span style="font-size:22px">🚗</span>
+          <div>
+            <div style="font-size:15px;font-weight:700;color:#fff;letter-spacing:.5px">Оценка автомобиля</div>
+            <div style="font-size:11px;color:rgba(255,255,255,.7);margin-top:2px">Заполните форму — перезвоним и назовём цену</div>
+          </div>
+        </div>
+        <div style="padding:20px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div style="margin-bottom:12px">
+              <label style="display:block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#666;margin-bottom:5px">Марка</label>
+              <input type="text" id="ev-brand" placeholder="Toyota, BMW, Kia..." style="width:100%;background:#1a1a1a;border:1px solid #2a2a2a;color:#eee;padding:9px 12px;font-size:13px;font-family:inherit;outline:none" onfocus="this.style.borderColor='#C0392B'" onblur="this.style.borderColor='#2a2a2a'">
+            </div>
+            <div style="margin-bottom:12px">
+              <label style="display:block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#666;margin-bottom:5px">Модель</label>
+              <input type="text" id="ev-model" placeholder="Camry, X5, Sportage..." style="width:100%;background:#1a1a1a;border:1px solid #2a2a2a;color:#eee;padding:9px 12px;font-size:13px;font-family:inherit;outline:none" onfocus="this.style.borderColor='#C0392B'" onblur="this.style.borderColor='#2a2a2a'">
+            </div>
+            <div style="margin-bottom:12px">
+              <label style="display:block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#666;margin-bottom:5px">Год выпуска</label>
+              <input type="number" id="ev-year" placeholder="2018" min="1990" max="2025" style="width:100%;background:#1a1a1a;border:1px solid #2a2a2a;color:#eee;padding:9px 12px;font-size:13px;font-family:inherit;outline:none" onfocus="this.style.borderColor='#C0392B'" onblur="this.style.borderColor='#2a2a2a'">
+            </div>
+            <div style="margin-bottom:12px">
+              <label style="display:block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#666;margin-bottom:5px">Пробег (км)</label>
+              <input type="number" id="ev-mileage" placeholder="85 000" style="width:100%;background:#1a1a1a;border:1px solid #2a2a2a;color:#eee;padding:9px 12px;font-size:13px;font-family:inherit;outline:none" onfocus="this.style.borderColor='#C0392B'" onblur="this.style.borderColor='#2a2a2a'">
+            </div>
+          </div>
+          <div style="margin-bottom:12px">
+            <label style="display:block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#666;margin-bottom:5px">Состояние</label>
+            <select id="ev-condition" style="width:100%;background:#1a1a1a;border:1px solid #2a2a2a;color:#eee;padding:9px 12px;font-size:13px;font-family:inherit;outline:none;cursor:pointer">
+              <option value="">— выберите состояние —</option>
+              <option value="отличное">Отличное — без замечаний</option>
+              <option value="хорошее">Хорошее — мелкие царапины</option>
+              <option value="среднее">Среднее — нужен кузовной ремонт</option>
+              <option value="битое">Битое / аварийное</option>
+              <option value="не на ходу">Не на ходу</option>
+            </select>
+          </div>
+          <div style="margin-bottom:12px">
+            <label style="display:block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#666;margin-bottom:5px">Доп. инфо (необязательно)</label>
+            <input type="text" id="ev-extra" placeholder="ПТС, кредит, привод, ссылка на объявление..." style="width:100%;background:#1a1a1a;border:1px solid #2a2a2a;color:#eee;padding:9px 12px;font-size:13px;font-family:inherit;outline:none" onfocus="this.style.borderColor='#C0392B'" onblur="this.style.borderColor='#2a2a2a'">
+          </div>
+          <div style="margin-bottom:16px">
+            <label style="display:block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#C0392B;margin-bottom:5px">★ Ваш телефон (обязательно)</label>
+            <input type="tel" id="ev-phone" placeholder="+7 900 000-00-00" style="width:100%;background:#1a1a1a;border:1px solid #C0392B;color:#eee;padding:9px 12px;font-size:13px;font-family:inherit;outline:none" onfocus="this.style.borderColor='#ff6b6b'" onblur="this.style.borderColor='#C0392B'">
+          </div>
+
+          <button id="evalBtn" onclick="sendRequest()" style="width:100%;background:#C0392B;color:#fff;border:none;padding:13px;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .2s" onmouseover="this.style.background='#96281b'" onmouseout="this.style.background='#C0392B'">
+            <span id="evalBtnTxt">📨 ОТПРАВИТЬ ЗАЯВКУ</span>
+            <div id="evalSpinner" style="width:16px;height:16px;border:2px solid rgba(255,255,255,.25);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:none"></div>
+          </button>
+
+          <a href="https://wa.me/79500702992" target="_blank" style="width:100%;background:#25D366;color:#fff;font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:.8rem;border:none;cursor:pointer;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:.5rem;text-decoration:none;transition:background .2s">💬 Написать в WhatsApp</a>
+          <a href="https://t.me/best_services_in_one_place_bot" target="_blank" class="eval-tg-btn" style="margin-top:8px">✈️ Оценить через Telegram-бот</a>
+
+          <div id="evalErr" style="display:none;margin-top:10px;font-size:12px;color:#C0392B;padding:8px 12px;background:#1a0a0a;border-left:2px solid #C0392B"></div>
+          <div id="evalOk" style="display:none;margin-top:12px;background:#0a1a0a;border:1px solid #27ae60;padding:16px;text-align:center">
+            <div style="font-size:24px;margin-bottom:8px">✅</div>
+            <div style="font-size:14px;font-weight:700;color:#27ae60;margin-bottom:4px">Заявка отправлена!</div>
+            <div style="font-size:12px;color:#aaa">Мы получили вашу заявку и перезвоним в ближайшее время.<br>Также можете написать нам прямо сейчас.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="eval-info">
+        <h3>Как это работает?</h3>
+        <ul>
+          <li>Заполните форму с данными авто</li>
+          <li>Обязательно укажите ваш телефон</li>
+          <li>Заявка придёт нам в Telegram и на почту</li>
+          <li>Перезвоним и назовём точную цену</li>
+          <li>Выезжаем на осмотр бесплатно</li>
+          <li>Деньги в день сделки</li>
+        </ul>
+        <div class="eval-note">
+          💡 Работаем с <strong>любыми</strong> авто — битыми, кредитными, не на ходу, из любой страны. Выезд по Иркутску и области бесплатно.
+        </div>
+        <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:10px">
+          <a href="tel:+79148999088" class="btn-red" style="display:inline-flex;justify-content:center">📞 +7 914 899-90-88</a>
+          <a href="tel:+79500702992" style="display:inline-flex;justify-content:center;align-items:center;gap:.5rem;background:#25D366;color:#fff;font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:.9rem 2rem;text-decoration:none">💬 WhatsApp +7 950 070-29-92</a>
+          <a href="https://t.me/+79500702992" target="_blank" class="btn-tg" style="display:inline-flex;justify-content:center">✈️ Telegram +7 950 070-29-92</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="catalog-section section" id="catalog">
+  <div class="section-inner">
+    <div class="s-label">Примеры выкупа</div>
+    <h2 class="s-title">Выкупаем любые авто</h2>
+    <div class="cat-tabs">
+      <button class="cat-tab active" onclick="filterCars('all',this)">Все</button>
+      <button class="cat-tab" onclick="filterCars('cheap',this)">До 500 тыс</button>
+      <button class="cat-tab" onclick="filterCars('mid',this)">500к–1.5 млн</button>
+      <button class="cat-tab" onclick="filterCars('premium',this)">Премиум</button>
+      <button class="cat-tab" onclick="filterCars('smashed',this)">Битые</button>
+      <button class="cat-tab" onclick="filterCars('import',this)">Иномарки</button>
+    </div>
+    <div class="cars-grid" id="carsGrid"></div>
+  </div>
+</section>
+
+<!-- IMPORT -->
+<section class="import-section" id="import">
+  <div class="section-inner">
+    <div class="s-label">Авто со всего мира</div>
+    <h2 class="s-title">Выкупаем авто из любой страны</h2>
+    <div class="countries-grid">
+      <div class="country-box"><div class="country-flag">🇯🇵</div><div class="country-name">Япония</div><div class="country-sub">Праворульные, Toyota, Honda, Nissan</div></div>
+      <div class="country-box"><div class="country-flag">🇰🇷</div><div class="country-name">Корея</div><div class="country-sub">Kia, Hyundai, Genesis</div></div>
+      <div class="country-box"><div class="country-flag">🇩🇪</div><div class="country-name">Германия</div><div class="country-sub">BMW, Mercedes, Audi, VW</div></div>
+      <div class="country-box"><div class="country-flag">🇺🇸</div><div class="country-name">США</div><div class="country-sub">Ford, Chevrolet, Tesla, Dodge</div></div>
+      <div class="country-box"><div class="country-flag">🇨🇳</div><div class="country-name">Китай</div><div class="country-sub">Haval, Geely, Chery, BYD</div></div>
+      <div class="country-box"><div class="country-flag">🇸🇪</div><div class="country-name">Швеция</div><div class="country-sub">Volvo, SAAB</div></div>
+      <div class="country-box"><div class="country-flag">🇫🇷</div><div class="country-name">Франция</div><div class="country-sub">Renault, Peugeot, Citroën</div></div>
+      <div class="country-box"><div class="country-flag">🌍</div><div class="country-name">Любая страна</div><div class="country-sub">Оцениваем и выкупаем</div></div>
+    </div>
+    <div class="import-cta">
+      <p style="color:#888;margin-bottom:1.5rem;max-width:500px;margin-left:auto;margin-right:auto">Привезли авто из-за рубежа? Нужно быстро продать? Оценим и выкупим с документами любого происхождения.</p>
+      <a href="#evaluate" class="btn-red">🤖 Оценить мой автомобиль</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section" id="why">
+  <div class="section-inner">
+    <div class="s-label">Наши преимущества</div>
+    <h2 class="s-title">Почему выбирают АвтоПрайс</h2>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-num">01</div><h3>ИИ-оценка за 60 секунд</h3><p>Gemini анализирует Авито, Авто.ру и Дром. Точный диапазон по вашему авто.</p></div>
+      <div class="why-card"><div class="why-num">02</div><h3>Расчёт в день сделки</h3><p>Деньги на карту или наличными в тот же день. Никаких обещаний.</p></div>
+      <div class="why-card"><div class="why-num">03</div><h3>Любое состояние</h3><p>Битые, кредитные, не на ходу, с долгами — берём всё. Любые страны.</p></div>
+      <div class="why-card"><div class="why-num">04</div><h3>Выезд бесплатно</h3><p>Приедем в любую точку Иркутска и области. Всё включено.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="section-dark" id="how">
+  <div class="section-inner">
+    <div class="s-label" style="color:var(--red);border-color:var(--red)">Как это работает</div>
+    <h2 class="s-title">4 шага до денег</h2>
+    <div class="how-steps">
+      <div class="how-step"><div class="step-num">1</div><h3>Заполните форму или напишите боту</h3><p>На сайте или в Telegram — как удобно.</p></div>
+      <div class="how-step"><div class="step-num">2</div><h3>ИИ делает оценку</h3><p>Gemini анализирует рынок и выдаёт цену выкупа и продажи.</p></div>
+      <div class="how-step"><div class="step-num">3</div><h3>Выезжаем на осмотр</h3><p>Специалист подтверждает цену. Оформляем документы.</p></div>
+      <div class="how-step"><div class="step-num">4</div><h3>Деньги у вас</h3><p>Перевод на карту или наличные — в тот же день.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div>
+        <div class="s-label">Контакты</div>
+        <h2 style="font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;margin-bottom:1.5rem">Свяжитесь с нами</h2>
+        <div class="contact-row"><div class="c-icon">📞</div><div><p>Основной</p><a href="tel:+79148999088">+7 914 899-90-88</a></div></div>
+        <div class="contact-row"><div class="c-icon">📱</div><div><p>Дополнительный</p><a href="tel:+79950500600">+7 995 050-06-00</a></div></div>
+        <div class="contact-row"><div class="c-icon">📲</div><div><p>WhatsApp / Viber</p><a href="tel:+79500702992">+7 950 070-29-92</a></div></div>
+        <div class="contact-row"><div class="c-icon">✉️</div><div><p>Email</p><a href="mailto:avtoprais@inbox.ru">avtoprais@inbox.ru</a></div></div>
+        <div class="contact-row"><div class="c-icon">📍</div><div><p>Работаем</p><strong>Иркутск и область, ежедневно</strong></div></div>
+      </div>
+      <div>
+        <div class="s-label" style="margin-top:.5rem">Мы в сети</div>
+        <div style="margin-bottom:1rem;font-size:.85rem;color:var(--muted)">Подписывайтесь — свежие авто каждый день</div>
+        <a href="https://wa.me/79500702992" target="_blank" class="social-link">💬 WhatsApp: +7 950 070-29-92</a>
+        <a href="https://t.me/+79500702992" target="_blank" class="social-link">✈️ Telegram: +7 950 070-29-92</a>
+        <a href="viber://chat?number=%2B79500702992" target="_blank" class="social-link">📳 Viber: +7 950 070-29-92</a>
+        <a href="https://vk.com/id830905784" target="_blank" class="social-link">🔵 ВКонтакте: Автосалон АвтоПрайс Иркутск</a>
+        <a href="https://ok.ru/profile/530199522211" target="_blank" class="social-link">🟠 Одноклассники: АвтоПрайс Иркутск</a>
+        <a href="https://www.tiktok.com/@user3770945756228" target="_blank" class="social-link">🎵 TikTok: @user3770945756228</a>
+        <a href="https://t.me/best_services_in_one_place_bot" target="_blank" class="social-link">🤖 Telegram-бот оценки авто</a>
+        <a href="https://t.me/AvtoPrais038" target="_blank" class="social-link">📢 Telegram-канал АвтоПрайс</a>
+        <a href="https://www.instagram.com/avtoprais.irkutsk" target="_blank" class="social-link">📷 Instagram: avtoprais.irkutsk</a>
+        <a href="https://www.avito.ru/user/335753525/profile" target="_blank" class="social-link">🟢 Авито: АвтоПрайс Иркутск</a>
+        <a href="https://www.drom.ru/user/32200470/" target="_blank" class="social-link">🔴 Дром: АвтоПрайс Иркутск</a>
+        <a href="https://auto.ru/dealer/20190825/" target="_blank" class="social-link">🔵 Авто.ру: АвтоПрайс Иркутск</a>
+        <a href="https://taplink.cc/car_038" target="_blank" class="social-link">🔗 Taplink — все ссылки</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ГАЛЕРЕЯ КУПЛЕННЫХ АВТО -->
+<section class="section" id="gallery" style="background:#111;padding:5rem 2rem">
+  <div class="section-inner">
+    <div class="s-label" style="color:#C0392B;border-color:#C0392B">Наши выкупы</div>
+    <h2 class="s-title" style="color:#fff;margin-bottom:.75rem">Купленные автомобили</h2>
+    <p style="color:#666;font-size:.9rem;margin-bottom:2rem">Реальные авто — реальные сделки</p>
+
+    <!-- ИНСТРУКЦИЯ ДЛЯ ВЛАДЕЛЬЦА -->
+    <div style="background:#1a1a1a;border:1px dashed #333;padding:1rem 1.5rem;margin-bottom:2rem;font-size:13px;color:#555;display:none" id="ownerHint">
+      💡 Чтобы добавить фото: замените ссылки на фото в коде сайта в массиве <code>galleryPhotos</code>
+    </div>
+
+    <div id="galleryGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem"></div>
+
+    <!-- КНОПКА ДОБАВИТЬ (только для вас — скройте от клиентов паролем) -->
+    <div style="margin-top:2rem;text-align:center">
+      <button onclick="toggleAddForm()" style="background:transparent;border:1px solid #333;color:#666;padding:.6rem 1.5rem;cursor:pointer;font-size:13px">+ Добавить авто (для владельца)</button>
+      <div id="addForm" style="display:none;margin-top:1rem;background:#1a1a1a;border:1px solid #2a2a2a;padding:1.5rem;max-width:500px;margin-left:auto;margin-right:auto;text-align:left">
+        <div style="margin-bottom:1rem">
+          <label style="display:block;font-size:11px;color:#666;margin-bottom:4px;text-transform:uppercase;letter-spacing:1px">Название авто</label>
+          <input id="g-name" type="text" placeholder="Toyota Camry 2019" style="width:100%;background:#111;border:1px solid #333;color:#eee;padding:8px 12px;font-size:13px;font-family:inherit;outline:none">
+        </div>
+        <div style="margin-bottom:1rem">
+          <label style="display:block;font-size:11px;color:#666;margin-bottom:4px;text-transform:uppercase;letter-spacing:1px">Цена выкупа</label>
+          <input id="g-price" type="text" placeholder="1 200 000 ₽" style="width:100%;background:#111;border:1px solid #333;color:#eee;padding:8px 12px;font-size:13px;font-family:inherit;outline:none">
+        </div>
+        <div style="margin-bottom:1rem">
+          <label style="display:block;font-size:11px;color:#666;margin-bottom:4px;text-transform:uppercase;letter-spacing:1px">Ссылка на фото (URL)</label>
+          <input id="g-img" type="text" placeholder="https://..." style="width:100%;background:#111;border:1px solid #333;color:#eee;padding:8px 12px;font-size:13px;font-family:inherit;outline:none">
+          <div style="font-size:11px;color:#555;margin-top:4px">Загрузите фото на любой хостинг (напр. imgur.com) и вставьте ссылку</div>
+        </div>
+        <div style="margin-bottom:1rem">
+          <label style="display:block;font-size:11px;color:#666;margin-bottom:4px;text-transform:uppercase;letter-spacing:1px">Комментарий</label>
+          <input id="g-desc" type="text" placeholder="Хорошее состояние, один хозяин" style="width:100%;background:#111;border:1px solid #333;color:#eee;padding:8px 12px;font-size:13px;font-family:inherit;outline:none">
+        </div>
+        <button onclick="addCar()" style="width:100%;background:#C0392B;color:#fff;border:none;padding:10px;font-size:13px;font-weight:700;cursor:pointer;letter-spacing:1px;text-transform:uppercase">✅ ДОБАВИТЬ В ГАЛЕРЕЮ</button>
+        <div id="g-note" style="margin-top:8px;font-size:11px;color:#27ae60;display:none">✓ Добавлено! Обновите страницу.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ОТЗЫВЫ -->
+<section class="section" id="reviews" style="background:#f4f4f4;padding:5rem 2rem">
+  <div class="section-inner">
+    <div class="s-label">Отзывы клиентов</div>
+    <h2 class="s-title">Нам доверяют</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem" id="reviewsGrid">
+
+      <div style="background:#fff;border:1px solid #e0e0e0;padding:1.5rem;border-top:3px solid #C0392B">
+        <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem">
+          <div style="width:44px;height:44px;background:#C0392B;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.1rem;flex-shrink:0">А</div>
+          <div>
+            <div style="font-weight:600;font-size:.95rem">Александр</div>
+            <div style="font-size:.78rem;color:#888">Toyota Camry 2017</div>
+          </div>
+          <div style="margin-left:auto;color:#f39c12;font-size:1rem">★★★★★</div>
+        </div>
+        <p style="font-size:.88rem;color:#555;line-height:1.6">Продал авто за один день! Приехали, осмотрели, сразу перевели деньги на карту. Никакого торга — дали честную цену. Рекомендую всем кто хочет быстро продать машину без лишних хлопот.</p>
+        <div style="font-size:.75rem;color:#bbb;margin-top:.75rem">Март 2025</div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #e0e0e0;padding:1.5rem;border-top:3px solid #C0392B">
+        <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem">
+          <div style="width:44px;height:44px;background:#2c3e50;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.1rem;flex-shrink:0">М</div>
+          <div>
+            <div style="font-weight:600;font-size:.95rem">Михаил</div>
+            <div style="font-size:.78rem;color:#888">BMW X5 2019</div>
+          </div>
+          <div style="margin-left:auto;color:#f39c12;font-size:1rem">★★★★★</div>
+        </div>
+        <p style="font-size:.88rem;color:#555;line-height:1.6">Думал что за битую машину много не дадут, но АвтоПрайс предложили нормальную цену. Всё оформили быстро, документы забрали сами. Очень удобно — не пришлось самому ничего делать.</p>
+        <div style="font-size:.75rem;color:#bbb;margin-top:.75rem">Апрель 2025</div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #e0e0e0;padding:1.5rem;border-top:3px solid #C0392B">
+        <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem">
+          <div style="width:44px;height:44px;background:#27ae60;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.1rem;flex-shrink:0">Е</div>
+          <div>
+            <div style="font-weight:600;font-size:.95rem">Елена</div>
+            <div style="font-size:.78rem;color:#888">Kia Sportage 2020</div>
+          </div>
+          <div style="margin-left:auto;color:#f39c12;font-size:1rem">★★★★★</div>
+        </div>
+        <p style="font-size:.88rem;color:#555;line-height:1.6">Срочно нужны были деньги, позвонила в АвтоПрайс. Приехали через час, оценили, расчёт получила в тот же день. Спасибо за профессионализм и понимание ситуации!</p>
+        <div style="font-size:.75rem;color:#bbb;margin-top:.75rem">Май 2025</div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #e0e0e0;padding:1.5rem;border-top:3px solid #C0392B">
+        <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem">
+          <div style="width:44px;height:44px;background:#8e44ad;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.1rem;flex-shrink:0">С</div>
+          <div>
+            <div style="font-weight:600;font-size:.95rem">Сергей</div>
+            <div style="font-size:.78rem;color:#888">Toyota Land Cruiser 200</div>
+          </div>
+          <div style="margin-left:auto;color:#f39c12;font-size:1rem">★★★★★</div>
+        </div>
+        <p style="font-size:.88rem;color:#555;line-height:1.6">Продавал праворульный крузак. Парни разбираются в японских машинах, дали хорошую цену. Всё честно, без скрытых вычетов. Уже второй раз продаю через них — всегда доволен.</p>
+        <div style="font-size:.75rem;color:#bbb;margin-top:.75rem">Июнь 2025</div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #e0e0e0;padding:1.5rem;border-top:3px solid #C0392B">
+        <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem">
+          <div style="width:44px;height:44px;background:#e67e22;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.1rem;flex-shrink:0">Н</div>
+          <div>
+            <div style="font-weight:600;font-size:.95rem">Наталья</div>
+            <div style="font-size:.78rem;color:#888">Hyundai Solaris 2018</div>
+          </div>
+          <div style="margin-left:auto;color:#f39c12;font-size:1rem">★★★★☆</div>
+        </div>
+        <p style="font-size:.88rem;color:#555;line-height:1.6">Продала машину которая была в кредите. Думала что будет сложно, но всё взяли на себя — сами разобрались с банком и документами. Получила остаток на руки в тот же день.</p>
+        <div style="font-size:.75rem;color:#bbb;margin-top:.75rem">Май 2025</div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #e0e0e0;padding:1.5rem;border-top:3px solid #C0392B">
+        <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem">
+          <div style="width:44px;height:44px;background:#C0392B;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.1rem;flex-shrink:0">В</div>
+          <div>
+            <div style="font-weight:600;font-size:.95rem">Виктор</div>
+            <div style="font-size:.78rem;color:#888">Mazda CX-5 2021</div>
+          </div>
+          <div style="margin-left:auto;color:#f39c12;font-size:1rem">★★★★★</div>
+        </div>
+        <p style="font-size:.88rem;color:#555;line-height:1.6">Быстро, чётко, по делу. Позвонил утром — вечером деньги уже были на карте. Цена оказалась выше чем я ожидал. Однозначно рекомендую АвтоПрайс всем в Иркутске!</p>
+        <div style="font-size:.75rem;color:#bbb;margin-top:.75rem">Июнь 2025</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <h2>Оцените авто прямо сейчас — бесплатно</h2>
+  <p>ИИ даёт ответ за 60 секунд · Перезвоним в течение 5 минут</p>
+  <a href="#evaluate" class="btn-white">🤖 Оценить на сайте</a>
+  <a href="https://t.me/best_services_in_one_place_bot" target="_blank" class="btn-white-tg">✈️ Оценить в Telegram</a>
+</div>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/79500702992" target="_blank" style="position:fixed;bottom:24px;right:24px;z-index:999;background:#25D366;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 16px rgba(0,0,0,.3);text-decoration:none;transition:transform .2s" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">💬</a>
+
+<footer>
+  <p>© 2025 <span>АвтоПрайс Иркутск</span> · Выкуп автомобилей · Иркутск и область · <a href="mailto:avtoprais@inbox.ru" style="color:#555">avtoprais@inbox.ru</a></p>
+</footer>
+
+<script>
+// Telegram — отправка заявок клиентов
+const TG_TOKEN = "8153739647:AAECZ7n48MZhxySCm1MAvaKuNkSSyqTlPMQ";
+const TG_CHAT_ID = "79500702992";
+
+// ===== ГАЛЕРЕЯ КУПЛЕННЫХ АВТО =====
+// Добавляйте свои фото сюда — просто добавьте объект в массив
+var galleryPhotos = [
+  {
+    name: "Toyota Camry 2018",
+    price: "1 050 000 ₽",
+    desc: "Выкуплена за 1 день. Хорошее состояние.",
+    img: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=600&q=75"
+  },
+  {
+    name: "BMW X5 2019",
+    price: "3 200 000 ₽",
+    desc: "Срочный выкуп. Расчёт в день обращения.",
+    img: "https://images.unsplash.com/photo-1617469767052-b85af24d0e2a?w=600&q=75"
+  },
+  {
+    name: "Toyota Land Cruiser 200",
+    price: "4 500 000 ₽",
+    desc: "Праворульный. Куплен за 2 часа.",
+    img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=75"
+  },
+  {
+    name: "Kia Sportage 2020",
+    price: "1 300 000 ₽",
+    desc: "Кредитный авто. Взяли вместе с документами.",
+    img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&q=75"
+  },
+  {
+    name: "Hyundai Solaris (битый)",
+    price: "380 000 ₽",
+    desc: "Аварийный. Выкуп без торга.",
+    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75"
+  },
+  {
+    name: "Lexus RX 2019",
+    price: "2 700 000 ₽",
+    desc: "Японский праворульный. Отличное состояние.",
+    img: "https://images.unsplash.com/photo-1590362891991-f776e747a588?w=600&q=75"
+  }
+];
+
+// Загружаем сохранённые авто из localStorage (добавленные через форму)
+function loadSavedCars(){
+  try {
+    var saved = localStorage.getItem('gallery_cars');
+    if(saved) return JSON.parse(saved);
+  } catch(e){}
+  return [];
+}
+
+function renderGallery(){
+  var saved = loadSavedCars();
+  var all = galleryPhotos.concat(saved);
+  var grid = document.getElementById('galleryGrid');
+  if(!grid) return;
+  grid.innerHTML = all.map(function(car){
+    return '<div style="background:#1a1a1a;border:1px solid #222;overflow:hidden;transition:transform .2s" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">' +
+      '<div style="height:190px;overflow:hidden">' +
+        '<img src="'+car.img+'" alt="'+car.name+'" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy" onerror="this.style.display='none'">' +
+      '</div>' +
+      '<div style="padding:1rem">' +
+        '<div style="font-family:Oswald,sans-serif;font-size:1.1rem;color:#fff;margin-bottom:.25rem">'+car.name+'</div>' +
+        '<div style="font-family:Oswald,sans-serif;font-size:1.4rem;color:#C0392B;font-weight:700;margin-bottom:.5rem">'+car.price+'</div>' +
+        '<div style="font-size:.82rem;color:#666;line-height:1.5">'+car.desc+'</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+
+function toggleAddForm(){
+  var f = document.getElementById('addForm');
+  f.style.display = f.style.display === 'none' ? 'block' : 'none';
+}
+
+function addCar(){
+  var name  = document.getElementById('g-name').value.trim();
+  var price = document.getElementById('g-price').value.trim();
+  var img   = document.getElementById('g-img').value.trim();
+  var desc  = document.getElementById('g-desc').value.trim();
+  if(!name || !img){ alert('Укажите название и ссылку на фото'); return; }
+  var saved = loadSavedCars();
+  saved.push({ name: name, price: price||'', desc: desc||'', img: img });
+  localStorage.setItem('gallery_cars', JSON.stringify(saved));
+  document.getElementById('g-note').style.display = 'block';
+  document.getElementById('g-name').value = '';
+  document.getElementById('g-price').value = '';
+  document.getElementById('g-img').value = '';
+  document.getElementById('g-desc').value = '';
+  renderGallery();
+}
+
+// КАТАЛОГ
+const carsData = [
+  {cat:"cheap",name:"Toyota Corolla",year:"2012",price:"320 000",tag:"cheap",tagLabel:"До 500 тыс",img:"https://images.unsplash.com/photo-1611016186353-9af58c69a533?w=600&q=75"},
+  {cat:"cheap",name:"Kia Rio",year:"2015",price:"480 000",tag:"cheap",tagLabel:"До 500 тыс",img:"https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&q=75"},
+  {cat:"mid",name:"Toyota Camry",year:"2018",price:"1 200 000",tag:"mid",tagLabel:"500к–1.5 млн",img:"https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=600&q=75"},
+  {cat:"mid",name:"BMW 3 Series",year:"2017",price:"950 000",tag:"mid",tagLabel:"500к–1.5 млн",img:"https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&q=75"},
+  {cat:"premium",name:"BMW X5",year:"2021",price:"4 500 000",tag:"premium",tagLabel:"Премиум",img:"https://images.unsplash.com/photo-1617469767052-b85af24d0e2a?w=600&q=75"},
+  {cat:"premium",name:"Mercedes GLE",year:"2022",price:"6 200 000",tag:"premium",tagLabel:"Премиум",img:"https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=600&q=75"},
+  {cat:"smashed",name:"Toyota RAV4 (битый)",year:"2019",price:"750 000",tag:"smashed",tagLabel:"Битый",img:"https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=600&q=75"},
+  {cat:"smashed",name:"Hyundai Solaris (аварийный)",year:"2020",price:"380 000",tag:"smashed",tagLabel:"Битый",img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75"},
+  {cat:"import",name:"Toyota Land Cruiser (Япония)",year:"2020",price:"4 800 000",tag:"import",tagLabel:"Иномарка",img:"https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=75"},
+  {cat:"import",name:"Lexus RX (праворульный)",year:"2019",price:"2 900 000",tag:"import",tagLabel:"Иномарка",img:"https://images.unsplash.com/photo-1590362891991-f776e747a588?w=600&q=75"},
+  {cat:"import",name:"Tesla Model 3 (США)",year:"2022",price:"3 200 000",tag:"import",tagLabel:"США",img:"https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=600&q=75"},
+  {cat:"import",name:"Haval Jolion (Китай)",year:"2023",price:"1 900 000",tag:"import",tagLabel:"Китай",img:"https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=600&q=75"},
+];
+
+function renderCars(filter){
+  const grid = document.getElementById('carsGrid');
+  const list = filter === 'all' ? carsData : carsData.filter(c => c.cat === filter);
+  grid.innerHTML = list.map(c => `
+    <div class="car-card">
+      <img class="car-img" src="${c.img}" alt="${c.name}" loading="lazy">
+      <div class="car-info">
+        <span class="car-tag ${c.tag}">${c.tagLabel}</span>
+        <div class="car-name">${c.name}</div>
+        <div class="car-year">${c.year} год</div>
+        <div class="car-price">${c.price} ₽ <span>выкуп</span></div>
+      </div>
+    </div>`).join('');
+}
+function filterCars(cat,btn){
+  document.querySelectorAll('.cat-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderCars(cat);
+}
+renderCars('all');
+renderGallery();
+
+// ОТПРАВКА ЗАЯВКИ В TELEGRAM
+async function sendRequest(){
+  const brand   = document.getElementById('ev-brand').value.trim();
+  const model   = document.getElementById('ev-model').value.trim();
+  const year    = document.getElementById('ev-year').value.trim();
+  const mileage = document.getElementById('ev-mileage').value.trim();
+  const cond    = document.getElementById('ev-condition').value;
+  const extra   = document.getElementById('ev-extra').value.trim();
+  const phone   = document.getElementById('ev-phone').value.trim();
+  const errEl   = document.getElementById('evalErr');
+  errEl.style.display = 'none';
+
+  if(!phone){
+    errEl.textContent = '⚠️ Укажите ваш телефон — это обязательное поле';
+    errEl.style.display = 'block';
+    return;
+  }
+  if(!brand && !model){
+    errEl.textContent = '⚠️ Укажите хотя бы марку или модель автомобиля';
+    errEl.style.display = 'block';
+    return;
+  }
+
+  const btn = document.getElementById('evalBtn');
+  btn.disabled = true;
+  btn.style.background = '#555';
+  document.getElementById('evalBtnTxt').textContent = 'Отправляю...';
+  document.getElementById('evalSpinner').style.display = 'block';
+
+  const msg =
+    '🚗 НОВАЯ ЗАЯВКА — АвтоПрайс Иркутск
+' +
+    '─────────────────
+' +
+    '📋 Авто: ' + [brand, model, year ? year+'г.' : '', mileage ? mileage+' км' : ''].filter(Boolean).join(' ') + '
+' +
+    '🔧 Состояние: ' + (cond || 'не указано') + '
+' +
+    (extra ? '📝 Доп. инфо: ' + extra + '
+' : '') +
+    '─────────────────
+' +
+    '📞 Телефон клиента: ' + phone + '
+' +
+    '─────────────────
+' +
+    '⏰ ' + new Date().toLocaleString('ru-RU', {timeZone:'Asia/Irkutsk'});
+
+  try {
+    // Отправка в Telegram
+    await fetch('https://api.telegram.org/bot' + TG_TOKEN + '/sendMessage', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        chat_id: TG_CHAT_ID,
+        text: msg,
+        parse_mode: 'HTML'
+      })
+    });
+
+    btn.disabled = false;
+    btn.style.background = '#C0392B';
+    document.getElementById('evalBtnTxt').textContent = '📨 ОТПРАВИТЬ ЗАЯВКУ';
+    document.getElementById('evalSpinner').style.display = 'none';
+    document.getElementById('evalOk').style.display = 'block';
+    // Очищаем форму
+    ['ev-brand','ev-model','ev-year','ev-mileage','ev-extra','ev-phone'].forEach(id=>{
+      document.getElementById(id).value='';
+    });
+    document.getElementById('ev-condition').value='';
+
+  } catch(e){
+    errEl.textContent = 'Ошибка отправки. Позвоните нам: +7 914 899-90-88';
+    errEl.style.display = 'block';
+    btn.disabled = false;
+    btn.style.background = '#C0392B';
+    document.getElementById('evalBtnTxt').textContent = '📨 ОТПРАВИТЬ ЗАЯВКУ';
+    document.getElementById('evalSpinner').style.display = 'none';
+  }
+}
+</script>
+</body>
+</html>
