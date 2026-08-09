@@ -555,9 +555,25 @@ function initCalcCarSliders() {
   });
 }
 
+function initBgCarSliders() {
+  document.querySelectorAll('.bg-car-slider').forEach(root => {
+    const slides = root.querySelectorAll('.bg-car-slide');
+    if (slides.length < 2) return;
+    let idx = 0;
+    const ms = parseInt(root.dataset.bgInterval, 10) || 5500;
+
+    setInterval(() => {
+      slides[idx].classList.remove('active');
+      idx = (idx + 1) % slides.length;
+      slides[idx].classList.add('active');
+    }, ms);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
   initHeroSlider();
+  initBgCarSliders();
   initSmoothScroll();
   initPageDots();
   initReveal();
