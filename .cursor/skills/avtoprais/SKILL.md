@@ -193,3 +193,5 @@ YouTube рабочий: https://www.youtube.com/@AvtoPrais1 (старый @Ол�
 Полный курс + авто под заказ: `knowledge/zakaz_avtosalon_polny.md`.
 Цена АвтоПрайс всегда **рынок минус 10–15%**, даже если в курсе другая формула.
 RAG: папка `knowledge/` + скрипт `scripts/rag.py`.
+Онлайн-агенты (один вход — сборщик): навык `agenty-avtoprais`, список `knowledge/agenty-avtoprais.md`.
+15 ролей отдельными навыками. Бухгалтер: `buhgalter-avtoprais`.

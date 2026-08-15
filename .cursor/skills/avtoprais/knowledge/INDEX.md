@@ -9,6 +9,9 @@
 - `kurs_bayera_avtosalon.md` — курс байера (выкуп)
 - `zakaz_avtosalon_polny.md` — полный курс: выкуп + **авто под заказ**
 - `nikita-kontakty-2026-08-15.md` — адрес, тексты и ссылки Никиты
+- `agenty-avtoprais.md` — 15 онлайн-агентов (Hub + роли)
+
+Навыки ролей: `agenty-avtoprais` (сборщик), `raspredelitel-avtoprais`, `proveryalschik-avtoprais`, `ocenschik-avtoprais`, `analitik-avtoprais`, `obyavleniya-avtoprais`, `otzyvy-avtoprais`, `buhgalter-avtoprais`, `napominalka-avtoprais`, `pod-zakaz-avtoprais`, `kpi-avtoprais`, `kontent-avtoprais`, `postprodazha-avtoprais`, `bezopasnik-avtoprais`, `optovik-avtoprais`.
 
 ## Расшифровки видео
 
