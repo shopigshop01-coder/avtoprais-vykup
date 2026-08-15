@@ -58,7 +58,7 @@ RedAuto: до 95% рынка, без ограничений и без убито
 
 ## Салон (факт)
 
-- АвтоПрайс Иркутск, **ул. Маяковского, 69Б** (Юла: 69/2)
+- АвтоПрайс, **г. Иркутск, ул. Маяковского, 69Б**
 - Выкуп: **+7 995 050-06-00**, второй **+7 914 899-90-88**
 - Сайт живой: https://site1.online/avtoprais-vikup/
 - Домен https://avtoprais-vykup.ru — куплен (Рег.ру), сайт ещё не привязан, HTTPS не работает
@@ -95,7 +95,7 @@ RedAuto: до 95% рынка, без ограничений и без убито
 | Instagram | https://www.instagram.com/avtoprais.irkutsk | ок |
 | Дром дилер | https://auto.drom.ru/dealer321411/ | ок (профиль user/32200470 — 404) |
 | Авто.ру профиль | AvtoVikup_AvtoPrais, id 125633723 | телефон 995, почта в профиле пустая |
-| Юла | короткое имя `avtoprais_vikup` | адрес 69/2, почта avtoprais@inbox.ru, с 17.05.2017 |
+| Юла | короткое имя `avtoprais_vikup` | адрес г. Иркутск, ул. Маяковского, 69Б, почта avtoprais@inbox.ru, с 17.05.2017 |
 | Taplink | https://taplink.cc/avtoprais1 | ок |
 | WhatsApp | https://wa.me/79950500600 | ок |
 

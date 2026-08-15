@@ -11,7 +11,7 @@ Taplink: https://taplink.cc/avtoprais1
 YouTube: https://www.youtube.com/@AvtoPrais1  
 
 Авто.ру: профиль AvtoVikup_AvtoPrais, id 125633723, телефон +7 995 050-06-00, город Иркутск. Почта в профиле не заполнена.
-Юла: AvtoVikup AvtoPrais, короткое имя avtoprais_vikup, адрес Иркутск, ул. Маяковского, 69/2, почта avtoprais@inbox.ru, на площадке с 17.05.2017.  
+Юла: AvtoVikup AvtoPrais, короткое имя avtoprais_vikup, адрес г. Иркутск, ул. Маяковского, 69Б, почта avtoprais@inbox.ru, на площадке с 17.05.2017.  
 
 Салон 09:00–20:00. Эвакуатор 24/7. Оценка ~15 минут, деньги в день обращения.
 
