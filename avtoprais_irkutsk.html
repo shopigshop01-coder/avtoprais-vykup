@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>АвтоПрайс Иркутск – Выкуп авто | ИИ-оценка за 60 секунд</title>
+<meta name="description" content="АвтоПрайс Иркутск — выкуп автомобилей любого состояния. ИИ-оценка за 60 секунд. Битые, кредитные, праворульные. Расчёт в день обращения.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="css/avtoprais.css">
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">АвтоПрайс <span>Иркутск</span></a>
+    <ul class="nav-links">
+      <li><a href="#evaluate">Оценить авто</a></li>
+      <li><a href="#catalog">Прайс-лист</a></li>
+      <li><a href="#import">Авто из-за рубежа</a></li>
+      <li><a href="#contact">Контакты</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="tel:+79148999088" class="nav-phone">📞 +7 914 899-90-88</a>
+      <button class="nav-burger" id="navBurger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="#evaluate">Оценить авто</a>
+  <a href="#catalog">Прайс-лист</a>
+  <a href="#import">Авто из-за рубежа</a>
+  <a href="#contact">Контакты</a>
+  <a href="tel:+79148999088">📞 +7 914 899-90-88</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1600&q=80" alt="">
+    <div class="hero-gradient"></div>
+  </div>
+  <div class="hero-accent"></div>
+  <div class="container hero-grid">
+    <div>
+      <p class="hero-eyebrow">🚗 АвтоПрайс Иркутск — выкуп автомобилей</p>
+      <h1>Продайте авто<br>за <em>1 час.</em><br>Честно.</h1>
+      <p class="hero-sub">ИИ-оценка по всем рыночным площадкам за 60 секунд. Любые авто — битые, кредитные, японские, европейские. Полный расчёт в день обращения.</p>
+      <div class="hero-cta">
+        <a href="#evaluate" class="btn btn-red">🤖 Оценить авто за 60 сек</a>
+        <a href="https://t.me/best_services_in_one_place_bot" target="_blank" rel="noopener" class="btn btn-tg">✈️ Бот в Telegram</a>
+        <a href="tel:+79148999088" class="btn btn-outline">📞 Позвонить</a>
+      </div>
+      <div class="hero-badges">
+        <span class="badge">✓ Любое состояние</span>
+        <span class="badge">✓ Авто из Японии, Кореи, Европы</span>
+        <span class="badge">✓ Выезд бесплатно</span>
+        <span class="badge">✓ Расчёт в день</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-watermark">038</div>
+</section>
+
+<section class="eval-section" id="evaluate">
+  <div class="container">
+    <span class="section-label">ИИ-оценка бесплатно</span>
+    <h2 class="section-title" style="color:#fff">Узнайте цену вашего авто<br>прямо сейчас</h2>
+    <div class="eval-grid">
+
+      <div class="form-card">
+        <div class="form-card-header">
+          <span style="font-size:1.5rem">🤖</span>
+          <div>
+            <h3>Автоматическая ИИ-оценка</h3>
+            <p>Gemini анализирует рынок Иркутска за 60 секунд</p>
+          </div>
+        </div>
+        <div class="form-body">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Марка</label>
+              <input type="text" id="ev-brand" placeholder="Toyota, BMW, Kia...">
+            </div>
+            <div class="form-group">
+              <label>Модель</label>
+              <input type="text" id="ev-model" placeholder="Camry, X5, Sportage...">
+            </div>
+            <div class="form-group">
+              <label>Год выпуска</label>
+              <input type="number" id="ev-year" placeholder="2018" min="1990" max="2026">
+            </div>
+            <div class="form-group">
+              <label>Пробег (км)</label>
+              <input type="number" id="ev-mileage" placeholder="85 000">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Состояние</label>
+            <select id="ev-condition">
+              <option value="">— выберите состояние —</option>
+              <option value="отличное">Отличное — без замечаний</option>
+              <option value="хорошее">Хорошее — мелкие царапины</option>
+              <option value="среднее">Среднее — нужен кузовной ремонт</option>
+              <option value="битое">Битое / аварийное</option>
+              <option value="не на ходу">Не на ходу</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="required">★ Ваше имя и телефон</label>
+            <input type="text" id="ev-contact" placeholder="Иван, +79001234567">
+          </div>
+          <div class="form-group">
+            <label>Доп. инфо (необязательно)</label>
+            <input type="text" id="ev-extra" placeholder="ПТС, кредит, привод, ссылка на объявление...">
+          </div>
+          <div class="form-actions">
+            <button id="evalBtn" class="btn btn-red" style="width:100%" onclick="runEvaluation()">
+              <span id="evalBtnTxt">⚡ ПОЛУЧИТЬ ОЦЕНКУ</span>
+              <div id="evalSpinner" class="spinner"></div>
+            </button>
+            <a href="https://t.me/best_services_in_one_place_bot" target="_blank" rel="noopener" class="btn btn-tg" style="width:100%">✈️ Оценить через Telegram-бот</a>
+          </div>
+          <div id="evalErr" class="form-msg error" style="display:none"></div>
+
+          <div id="evalResult" style="display:none">
+            <div class="eval-result-grid">
+              <div class="price-result-box buy">
+                <p>Цена выкупа</p>
+                <strong id="resBy">—</strong>
+              </div>
+              <div class="price-result-box sell">
+                <p>Цена продажи</p>
+                <strong id="resSell">—</strong>
+              </div>
+            </div>
+            <div id="resVerdict" class="verdict-box"></div>
+            <div class="eval-result-note">Результат получен · Позвоните нам: +7 914 899-90-88</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="eval-info">
+        <h3>Почему наша оценка точная?</h3>
+        <ul class="eval-list">
+          <li>Анализ актуальных объявлений на Авито, Авто.ру, Дром</li>
+          <li>Учёт иркутского рынка (праворульные, японские популярны)</li>
+          <li>Gemini AI обрабатывает тысячи сделок</li>
+          <li>Учитываем состояние, год, пробег, регион</li>
+          <li>Результат приходит за 60 секунд</li>
+          <li>Ваши данные отправляются нам — перезвоним</li>
+        </ul>
+        <div class="eval-note">
+          💡 Оценка ИИ является ориентировочной. После выезда наш специалист уточнит финальную цену. Мы работаем с <strong>любыми</strong> авто — битыми, кредитными, не на ходу.
+        </div>
+        <a href="https://t.me/best_services_in_one_place_bot" target="_blank" rel="noopener" class="btn btn-tg">✈️ Бот для оценки в Telegram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-gray" id="catalog">
+  <div class="container">
+    <span class="section-label">Прайс-лист выкупа</span>
+    <h2 class="section-title">Примеры выкупа — цены и категории</h2>
+
+    <div class="cat-tabs">
+      <button class="cat-tab active" onclick="filterCars('all',this)">Все</button>
+      <button class="cat-tab" onclick="filterCars('cheap',this)">До 500 тыс</button>
+      <button class="cat-tab" onclick="filterCars('mid',this)">500к–1.5 млн</button>
+      <button class="cat-tab" onclick="filterCars('premium',this)">Премиум</button>
+      <button class="cat-tab" onclick="filterCars('smashed',this)">Битые</button>
+      <button class="cat-tab" onclick="filterCars('import',this)">Иномарки</button>
+    </div>
+
+    <div class="catalog-toolbar">
+      <div class="catalog-controls">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <input type="search" id="catalogSearch" placeholder="Поиск по марке, модели, году...">
+        </div>
+        <select class="sort-select" id="catalogSort" aria-label="Сортировка">
+          <option value="default">По умолчанию</option>
+          <option value="price-asc">Цена ↑</option>
+          <option value="price-desc">Цена ↓</option>
+          <option value="year-desc">Год ↓</option>
+          <option value="year-asc">Год ↑</option>
+        </select>
+      </div>
+      <div class="view-toggle">
+        <button class="view-btn active" onclick="setView('cards',this)" aria-label="Карточки">▦ Карточки</button>
+        <button class="view-btn" onclick="setView('table',this)" aria-label="Таблица">☰ Таблица</button>
+      </div>
+    </div>
+    <p class="catalog-count" id="catalogCount">12 авто</p>
+
+    <div class="cars-grid" id="carsGrid"></div>
+
+    <div class="price-table-wrap" id="priceTableWrap">
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th>Фото</th>
+            <th>Автомобиль</th>
+            <th>Год</th>
+            <th>Категория</th>
+            <th>Цена выкупа</th>
+          </tr>
+        </thead>
+        <tbody id="priceTableBody"></tbody>
+      </table>
+    </div>
+
+    <div class="empty-state" id="catalogEmpty" style="display:none">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <p>Автомобили не найдены. Попробуйте изменить фильтр или поисковый запрос.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark" id="import">
+  <div class="container">
+    <span class="section-label">Авто со всего мира</span>
+    <h2 class="section-title">Выкупаем авто из любой страны</h2>
+    <div class="countries-grid">
+      <div class="country-box"><div class="country-flag">🇯🇵</div><div class="country-name">Япония</div><div class="country-sub">Праворульные, Toyota, Honda, Nissan</div></div>
+      <div class="country-box"><div class="country-flag">🇰🇷</div><div class="country-name">Корея</div><div class="country-sub">Kia, Hyundai, Genesis</div></div>
+      <div class="country-box"><div class="country-flag">🇩🇪</div><div class="country-name">Германия</div><div class="country-sub">BMW, Mercedes, Audi, Volkswagen</div></div>
+      <div class="country-box"><div class="country-flag">🇺🇸</div><div class="country-name">США</div><div class="country-sub">Ford, Chevrolet, Tesla, Dodge</div></div>
+      <div class="country-box"><div class="country-flag">🇨🇳</div><div class="country-name">Китай</div><div class="country-sub">Haval, Geely, Chery, BYD</div></div>
+      <div class="country-box"><div class="country-flag">🇸🇪</div><div class="country-name">Швеция</div><div class="country-sub">Volvo, SAAB</div></div>
+      <div class="country-box"><div class="country-flag">🇫🇷</div><div class="country-name">Франция</div><div class="country-sub">Renault, Peugeot, Citroën</div></div>
+      <div class="country-box"><div class="country-flag">🌍</div><div class="country-name">Любая страна</div><div class="country-sub">Оцениваем и выкупаем</div></div>
+    </div>
+    <p style="color:rgba(255,255,255,.55);text-align:center;max-width:520px;margin:2rem auto 1.5rem;line-height:1.7">Привезли авто из-за рубежа? Нужно быстро продать? Мы оценим и выкупим с документами любого происхождения.</p>
+    <div style="text-align:center"><a href="#evaluate" class="btn btn-red">🤖 Оценить мой автомобиль</a></div>
+  </div>
+</section>
+
+<section class="section" id="why">
+  <div class="container">
+    <span class="section-label">Наши преимущества</span>
+    <h2 class="section-title">Почему выбирают АвтоПрайс</h2>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-num">01</div><h3>ИИ-оценка за 60 секунд</h3><p>Gemini анализирует Авито, Авто.ру и Дром. Точный диапазон по вашему конкретному авто.</p></div>
+      <div class="why-card"><div class="why-num">02</div><h3>Расчёт в день сделки</h3><p>Деньги на карту или наличными в тот же день. Никаких обещаний.</p></div>
+      <div class="why-card"><div class="why-num">03</div><h3>Любое состояние</h3><p>Битые, кредитные, не на ходу, с долгами — берём всё. Любые страны.</p></div>
+      <div class="why-card"><div class="why-num">04</div><h3>Выезд бесплатно</h3><p>Приедем в любую точку Иркутска и Иркутской области. Всё включено.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark" id="how">
+  <div class="container">
+    <span class="section-label">Как это работает</span>
+    <h2 class="section-title">4 шага до денег</h2>
+    <div class="how-steps">
+      <div class="how-step"><div class="step-num">1</div><h3>Заполните форму или напишите боту</h3><p>На сайте или в Telegram — как удобно.</p></div>
+      <div class="how-step"><div class="step-num">2</div><h3>ИИ делает оценку</h3><p>Gemini анализирует рынок и выдаёт цену выкупа и продажи.</p></div>
+      <div class="how-step"><div class="step-num">3</div><h3>Выезжаем на осмотр</h3><p>Наш специалист подтверждает цену. Оформляем документы.</p></div>
+      <div class="how-step"><div class="step-num">4</div><h3>Деньги у вас</h3><p>Перевод на карту или наличные — в тот же день.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-gray" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <span class="section-label">Контакты</span>
+        <h2 class="section-title" style="font-size:2rem;margin-bottom:1.5rem">Свяжитесь с нами</h2>
+        <div class="contact-row"><div class="c-icon">📞</div><div><p>Основной</p><a href="tel:+79148999088">+7 914 899-90-88</a></div></div>
+        <div class="contact-row"><div class="c-icon">📱</div><div><p>Дополнительный</p><a href="tel:+79950500600">+7 995 050-06-00</a></div></div>
+        <div class="contact-row"><div class="c-icon">✉️</div><div><p>Email</p><a href="mailto:avtoprais@inbox.ru">avtoprais@inbox.ru</a></div></div>
+        <div class="contact-row"><div class="c-icon">📍</div><div><p>Работаем</p><strong>Иркутск и область, ежедневно</strong></div></div>
+      </div>
+      <div>
+        <span class="section-label">Мы в сети</span>
+        <p style="font-size:.875rem;color:var(--muted);margin-bottom:1rem">Подписывайтесь — свежие авто каждый день</p>
+        <a href="https://t.me/best_services_in_one_place_bot" target="_blank" rel="noopener" class="social-link">🤖 Telegram-бот оценки авто</a>
+        <a href="https://t.me/AvtoPrais038" target="_blank" rel="noopener" class="social-link">📢 Telegram-канал АвтоПрайс</a>
+        <a href="https://www.instagram.com/avtoprais.irkutsk" target="_blank" rel="noopener" class="social-link">📷 Instagram: avtoprais.irkutsk</a>
+        <a href="https://www.facebook.com/share/1GTfQAHpNu/" target="_blank" rel="noopener" class="social-link">📘 Facebook</a>
+        <a href="https://taplink.cc/car_038" target="_blank" rel="noopener" class="social-link">🔗 Taplink — все ссылки</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <div class="container">
+    <h2>Оцените авто прямо сейчас — бесплатно</h2>
+    <p>ИИ даёт ответ за 60 секунд · Мы перезвоним в течение 5 минут</p>
+    <div class="cta-btns">
+      <a href="#evaluate" class="btn btn-white">🤖 Оценить на сайте</a>
+      <a href="https://t.me/best_services_in_one_place_bot" target="_blank" rel="noopener" class="btn btn-ghost">✈️ Оценить в Telegram</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2025 <span>АвтоПрайс Иркутск</span> · Выкуп автомобилей · Иркутск и область · <a href="mailto:avtoprais@inbox.ru">avtoprais@inbox.ru</a></p>
+  </div>
+</footer>
+
+<script src="js/avtoprais-ai.js"></script>
+</body>
+</html>
