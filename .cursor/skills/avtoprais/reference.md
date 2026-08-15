@@ -56,9 +56,13 @@ CarPrice: госномер → оценка → аукцион 10k+ дилеро
 RedAuto: до 95% рынка, без ограничений и без убитой геометрии.
 Опт стока: закрытый TG, проф-аукционы, прямые контракты.
 
-## Салон (факт с сайта)
+## Салон (факт)
 
-- АвтоПрайс Иркутск, +7 914 899-90-88
+- АвтоПрайс Иркутск, выкуп: **+7 995 050-06-00**, второй **+7 914 899-90-88**
+- Сайт: https://site1.online/avtoprais-vikup/
+- Taplink: https://taplink.cc/avtoprais1
+- Бот: https://t.me/best_services_in_one_place_bot
+- Канал: https://t.me/AvtoPrais038
+- Почта: avtoprais@inbox.ru
 - Выкуп минус 10–15% от рынка
-- Telegram-бот: t.me/best_services_in_one_place_bot
-- Лендинги: `avtoprais_irkutsk.html`, `avtoprais-vikup/`
+- Лендинги в коде: `avtoprais_irkutsk.html`, `avtoprais-vikup/`

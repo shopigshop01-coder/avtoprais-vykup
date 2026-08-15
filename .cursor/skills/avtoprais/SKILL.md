@@ -10,7 +10,12 @@ description: >-
 # АвтоПрайс Иркутск
 
 Салон **срочного выкупа** авто с пробегом. Город: Иркутск.
-Телефон: **+7 914 899-90-88**. Сайт: `avtoprais_irkutsk.html`, `avtoprais-vikup/`.
+Телефон выкупа: **+7 995 050-06-00**. Второй: **+7 914 899-90-88**.
+Сайт: https://site1.online/avtoprais-vikup/
+Контакты: https://taplink.cc/avtoprais1
+Бот: https://t.me/best_services_in_one_place_bot
+Канал: https://t.me/AvtoPrais038
+Почта: avtoprais@inbox.ru
 Код: GitHub `shopigshop01-coder/avtoprais-vykup`, ветка `cursor/avtoprais-portal-redesign`.
 
 Отвечай по-русски, просто. Цифры не выдумывай. Оценка — ориентир, финал после осмотра.
