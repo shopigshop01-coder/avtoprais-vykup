@@ -58,38 +58,48 @@ RedAuto: до 95% рынка, без ограничений и без убито
 
 ## Салон (факт)
 
-- АвтоПрайс Иркутск, выкуп: **+7 995 050-06-00**, второй **+7 914 899-90-88**
-- Сайт: https://site1.online/avtoprais-vikup/
+- АвтоПрайс Иркутск, **ул. Маяковского, 69Б** (Юла: 69/2)
+- Выкуп: **+7 995 050-06-00**, второй **+7 914 899-90-88**
+- Сайт живой: https://site1.online/avtoprais-vikup/
+- Домен https://avtoprais-vykup.ru — куплен (Рег.ру), сайт ещё не привязан, HTTPS не работает
 - Taplink: https://taplink.cc/avtoprais1
 - Бот: https://t.me/best_services_in_one_place_bot
 - Канал: https://t.me/AvtoPrais038
 - Почта: avtoprais@inbox.ru
-- Режим: ежедневно, без выходных. Эвакуатор 24/7. Иркутск и область
+- Режим: салон 09:00–20:00; эвакуатор 24/7; Иркутск и область
 - Выкуп минус 10–15% от рынка
 - Лендинги в коде: `avtoprais_irkutsk.html`, `avtoprais-vikup/`
 
-## Площадки (с сайта)
+## Площадки (Никита, 15.08.2026)
 
-| Куда | Ссылка |
-|---|---|
-| 2ГИС отзыв | https://2gis.ru/reviews/70000001075827565/addReview |
-| Яндекс.Карты | https://yandex.ru/maps/-/CTrmbF4B |
-| Google отзыв | https://g.page/r/CU0OAzica4b3EBM/review |
-| Google Maps | https://maps.app.goo.gl/M45fKuQ3uv8dtv3VA |
-| VK | https://vk.me/avtoprais38 |
-| Одноклассники | https://ok.ru/profile/530199522211 |
-| YouTube | https://www.youtube.com/@Олегкузькин-ю6э |
-| Rutube | https://rutube.ru/channel/80168541 |
-| Дзен | https://dzen.ru/id/6a602c7e6b97d635333ab650 |
-| MAX | https://max.ru/u/f9LHodD0cOLEuKGbfOpdT298GincjVflpKwwiOHwJ-cFWlqHDcnxGYuUWh8 |
-| Авито | https://www.avito.ru/brands/i335753525 |
-| WhatsApp | https://wa.me/79950500600 |
-| Telegram | https://t.me/+79950500600 |
-| Instagram | https://www.instagram.com/avtoprais.irkutsk |
-| Дром | https://www.drom.ru/user/32200470/ |
-| Авто.ру | https://auto.ru/dealer/20190825/ |
-| Taplink (кнопка) | https://taplink.cc/avtoprais1 |
-| Taplink (сетка) | https://taplink.cc/car_038 |
+| Куда | Ссылка | Статус |
+|---|---|---|
+| 2ГИС отзыв | https://2gis.ru/reviews/70000001075827565/addReview | ок |
+| Яндекс.Карты | https://yandex.ru/maps/-/CTrmbF4B | ок |
+| Google отзыв | https://g.page/r/CU0OAzica4b3EBM/review | ок |
+| Google Maps | https://maps.app.goo.gl/M45fKuQ3uv8dtv3VA | ок |
+| Google Maps 2 | https://maps.app.goo.gl/8YCAChSq79jPWAb18 | от Никиты |
+| VK чат | https://vk.me/avtoprais38 | ок |
+| VK страница | https://vk.ru/avtoprais38 | 404 |
+| VK группа | https://vk.com/club223327595 | живая |
+| Одноклассники | https://ok.ru/profile/530199522211 | ок |
+| OK статус | https://ok.ru/profile/530199522211/statuses/157268828148643 | от Никиты |
+| YouTube | https://www.youtube.com/@AvtoPrais1 | **рабочий** |
+| YouTube старый | https://www.youtube.com/@Олегкузькин-ю6э | 404, не ставить |
+| Rutube | https://rutube.ru/channel/80168541 | ок |
+| Дзен | https://dzen.ru/id/6a602c7e6b97d635333ab650 | ок |
+| MAX | https://max.ru/u/f9LHodD0cOLEuKGbfOpdT298GincjVflpKwwiOHwJ-cFWlqHDcnxGYuUWh8 | от Никиты |
+| Авито бренд | https://www.avito.ru/brands/i335753525 | ок |
+| Авито услуги | https://www.avito.ru/irkutsk/predlozheniya_uslug/avtovykup_vykup_avto_lyubyh_avto_8178235022 | от Никиты |
+| Facebook | https://www.facebook.com/share/1BRmdnNXi1/ | от Никиты |
+| Instagram | https://www.instagram.com/avtoprais.irkutsk | ок |
+| Дром дилер | https://auto.drom.ru/dealer321411/ | ок (профиль user/32200470 — 404) |
+| Авто.ру профиль | AvtoVikup_AvtoPrais, id 125633723 | телефон 995, почта в профиле пустая |
+| Юла | короткое имя `avtoprais_vikup` | адрес 69/2, почта avtoprais@inbox.ru, с 17.05.2017 |
+| Taplink | https://taplink.cc/avtoprais1 | ок |
+| WhatsApp | https://wa.me/79950500600 | ок |
 
-На сайте: 914 — «основной», 995 — «дополнительный» + WhatsApp/Telegram. Для выкупа — **995**.
-Юридически: не оферта (ст. 437 ГК РФ), 152-ФЗ, цена после осмотра.
+Выкуп: легковые любое состояние, кредитные/залоговые, мото, квадро, катера/гидроциклы. Привоз Япония/Корея/Китай.
+Оценка ~15 мин, деньги в день обращения. Не оферта, цена после осмотра.
+
+Задача Никите: «оформи 500600 на авто.ру» — номер +7 995 050-06-00 на карточке Авто.ру.
