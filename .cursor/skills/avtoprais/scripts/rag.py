@@ -5,7 +5,12 @@ import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-FILES = [ROOT / "SKILL.md", ROOT / "reference.md", *sorted((ROOT / "knowledge").glob("*.txt"))]
+FILES = [
+    ROOT / "SKILL.md",
+    ROOT / "reference.md",
+    *sorted((ROOT / "knowledge").glob("*.txt")),
+    *sorted((ROOT / "knowledge").glob("*.md")),
+]
 
 
 def chunks(text: str, size: int = 900, overlap: int = 120):

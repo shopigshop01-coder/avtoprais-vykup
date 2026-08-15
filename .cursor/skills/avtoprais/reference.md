@@ -16,6 +16,12 @@ GitHub: https://github.com/shopigshop01-coder/avtoprais-vykup
 | Автокипр / структура салона | https://www.youtube.com/watch?v=x6yrrW9tLJA | Финансы, колл-центр |
 | Канал Haraba | https://www.youtube.com/@haraba | Основной бесплатный канал |
 
+## Курс байера (файл в RAG)
+
+`knowledge/kurs_bayera_avtosalon.md` — программа из Telegram (15.08.2026).
+Модули: поиск, звонок, осмотр, оценка, документы, кредит/залог, предпродажка, продажа, KPI, юридика.
+Цена салона важнее формулы курса: у АвтоПрайс **минус 10–15%**.
+
 ## Курсы и книги
 
 - Haraba: haraba-school.ru — онлайн ~9 900 ₽, интенсив ~32 300 ₽, выезд в салон 3 дня.
