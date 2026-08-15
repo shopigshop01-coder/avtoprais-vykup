@@ -64,5 +64,32 @@ RedAuto: до 95% рынка, без ограничений и без убито
 - Бот: https://t.me/best_services_in_one_place_bot
 - Канал: https://t.me/AvtoPrais038
 - Почта: avtoprais@inbox.ru
+- Режим: ежедневно, без выходных. Эвакуатор 24/7. Иркутск и область
 - Выкуп минус 10–15% от рынка
 - Лендинги в коде: `avtoprais_irkutsk.html`, `avtoprais-vikup/`
+
+## Площадки (с сайта)
+
+| Куда | Ссылка |
+|---|---|
+| 2ГИС отзыв | https://2gis.ru/reviews/70000001075827565/addReview |
+| Яндекс.Карты | https://yandex.ru/maps/-/CTrmbF4B |
+| Google отзыв | https://g.page/r/CU0OAzica4b3EBM/review |
+| Google Maps | https://maps.app.goo.gl/M45fKuQ3uv8dtv3VA |
+| VK | https://vk.me/avtoprais38 |
+| Одноклассники | https://ok.ru/profile/530199522211 |
+| YouTube | https://www.youtube.com/@Олегкузькин-ю6э |
+| Rutube | https://rutube.ru/channel/80168541 |
+| Дзен | https://dzen.ru/id/6a602c7e6b97d635333ab650 |
+| MAX | https://max.ru/u/f9LHodD0cOLEuKGbfOpdT298GincjVflpKwwiOHwJ-cFWlqHDcnxGYuUWh8 |
+| Авито | https://www.avito.ru/brands/i335753525 |
+| WhatsApp | https://wa.me/79950500600 |
+| Telegram | https://t.me/+79950500600 |
+| Instagram | https://www.instagram.com/avtoprais.irkutsk |
+| Дром | https://www.drom.ru/user/32200470/ |
+| Авто.ру | https://auto.ru/dealer/20190825/ |
+| Taplink (кнопка) | https://taplink.cc/avtoprais1 |
+| Taplink (сетка) | https://taplink.cc/car_038 |
+
+На сайте: 914 — «основной», 995 — «дополнительный» + WhatsApp/Telegram. Для выкупа — **995**.
+Юридически: не оферта (ст. 437 ГК РФ), 152-ФЗ, цена после осмотра.

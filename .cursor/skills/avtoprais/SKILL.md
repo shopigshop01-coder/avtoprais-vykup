@@ -16,6 +16,8 @@ description: >-
 Бот: https://t.me/best_services_in_one_place_bot
 Канал: https://t.me/AvtoPrais038
 Почта: avtoprais@inbox.ru
+Режим: ежедневно, без выходных. Эвакуатор **24/7**. Регион: Иркутск и область.
+На сайте 914 подписан как «основной», 995 — «дополнительный». Для выкупа клиенту давать **995** (WhatsApp/Telegram).
 Код: GitHub `shopigshop01-coder/avtoprais-vykup`, ветка `cursor/avtoprais-portal-redesign`.
 
 Отвечай по-русски, просто. Цифры не выдумывай. Оценка — ориентир, финал после осмотра.
