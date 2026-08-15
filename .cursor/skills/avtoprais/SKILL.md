@@ -195,3 +195,4 @@ YouTube рабочий: https://www.youtube.com/@AvtoPrais1 (старый @Ол�
 RAG: папка `knowledge/` + скрипт `scripts/rag.py`.
 Онлайн-агенты (один вход — сборщик): навык `agenty-avtoprais`, список `knowledge/agenty-avtoprais.md`.
 15 ролей отдельными навыками. Бухгалтер: `buhgalter-avtoprais`.
+Именные (Сергей, Марина…): навык `imennye-agenty-avtoprais`.
