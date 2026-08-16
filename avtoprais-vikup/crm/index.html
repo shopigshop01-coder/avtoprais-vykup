@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CRM АвтоПрайс — Иркутск, Маяковского 69Б</title>
+<style>
+:root{--red:#C41E3A;--blue:#0039A6;--bg:#F5F6FA;--text:#1A1D26;--muted:#5C6370;--line:#DDE1EA;--ok:#1B8A5A;--wa:#25D366}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.4}
+header{background:linear-gradient(135deg,#002D7A,var(--blue));color:#fff;padding:14px 18px;border-bottom:4px solid var(--red);display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+header h1{font-size:1.05rem}
+header small{opacity:.85;display:block;font-weight:400}
+.bar{display:flex;gap:8px;flex-wrap:wrap}
+button,.btn{border:0;border-radius:10px;padding:8px 12px;font-weight:700;cursor:pointer;font-family:inherit}
+.btn-red{background:var(--red);color:#fff}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-ok{background:var(--ok);color:#fff}
+.btn-ghost{background:#fff;color:var(--blue);border:1px solid var(--line)}
+.wrap{max-width:1200px;margin:0 auto;padding:16px}
+.tabs{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.tabs button{background:#fff;border:1px solid var(--line)}
+.tabs button.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:14px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px}
+.kpi b{display:block;font-size:1.4rem}
+.kpi span{color:var(--muted);font-size:.8rem}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
+label{display:block;font-size:.75rem;color:var(--muted);margin:8px 0 4px}
+input,select,textarea{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;font:inherit}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px}
+table{width:100%;border-collapse:collapse;font-size:.85rem;background:#fff}
+th,td{border-bottom:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}
+th{font-size:.75rem;color:var(--muted);background:#fafbff}
+.hot td{background:#fff3f3}
+.stale td{background:#fff8e6}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:.72rem;font-weight:700}
+.s-new{background:#ffe8ec;color:var(--red)}
+.s-call{background:#e8f0ff;color:var(--blue)}
+.s-look{background:#fff3d6;color:#8a5a00}
+.s-deal{background:#e5f7ee;color:var(--ok)}
+.s-no{background:#eee;color:#666}
+.s-sale{background:#e8f0ff;color:var(--blue)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.filters input,.filters select{width:auto;min-width:140px}
+a.wa{color:var(--wa);font-weight:700}
+.note{font-size:.8rem;color:var(--muted);margin:8px 0 14px}
+dialog{border:0;border-radius:16px;padding:18px;max-width:720px;width:calc(100% - 24px)}
+dialog::backdrop{background:rgba(0,0,0,.4)}
+.hide{display:none}
+@media(max-width:700px){table{font-size:.78rem}th:nth-child(n+6),td:nth-child(n+6){display:none}}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>CRM АвтоПрайс <small>г. Иркутск, ул. Маяковского, 69Б · выкуп +7 995 050-06-00</small></h1>
+  </div>
+  <div class="bar">
+    <button class="btn-red" id="btnAdd">+ Заявка</button>
+    <button class="btn-blue" id="btnCar">+ Авто на склад</button>
+    <button class="btn-ghost" id="btnCsv">Excel</button>
+    <button class="btn-ghost" id="btnSave">Сохранить файл</button>
+    <button class="btn-ghost" id="btnLoad">Открыть файл</button>
+  </div>
+</header>
+<div class="wrap">
+  <p class="note">Бесплатно, без API. Данные в этом браузере. Раз в день жмите «Сохранить файл» — чтобы не потерять. Позже подключим Авито/VK.</p>
+  <div class="tabs">
+    <button class="on" data-tab="leads">Заявки</button>
+    <button data-tab="stock">Склад</button>
+    <button data-tab="kpi">Сводка</button>
+  </div>
+  <div id="kpis" class="kpis"></div>
+  <section id="tab-leads">
+    <div class="filters">
+      <select id="fStatus"><option value="">Все статусы</option></select>
+      <select id="fType"><option value="">Все типы</option></select>
+      <input id="fQ" placeholder="поиск: имя, телефон, авто">
+    </div>
+    <div style="overflow:auto"><table id="tblLeads"></table></div>
+  </section>
+  <section id="tab-stock" class="hide">
+    <div style="overflow:auto"><table id="tblStock"></table></div>
+  </section>
+  <section id="tab-kpi" class="hide">
+    <div class="card" id="kpiText"></div>
+  </section>
+</div>
+
+<dialog id="dlg">
+  <form id="formLead">
+    <h3 id="dlgTitle">Заявка</h3>
+    <input type="hidden" name="id">
+    <div class="grid">
+      <div><label>Тип</label>
+        <select name="type">
+          <option>Выкуп</option><option>Продажа</option><option>Trade-in</option><option>Комиссия</option><option>Под заказ</option>
+        </select></div>
+      <div><label>Источник</label>
+        <select name="source">
+          <option>Телефон 995</option><option>Сайт</option><option>Бот</option><option>WhatsApp</option><option>Telegram</option>
+          <option>Авито</option><option>Авто.ру</option><option>Дром</option><option>Юла</option><option>VK</option><option>Другое</option>
+        </select></div>
+      <div><label>Срочность</label>
+        <select name="urgency"><option>Срочно</option><option>Нормально</option></select></div>
+      <div><label>Статус</label>
+        <select name="status">
+          <option>Новая</option><option>Перезвон</option><option>Осмотр</option><option>Цена</option>
+          <option>Выкупили</option><option>Отказ</option><option>Комиссия</option>
+        </select></div>
+      <div><label>Марка</label><input name="brand" required></div>
+      <div><label>Модель</label><input name="model"></div>
+      <div><label>Год</label><input name="year" type="number"></div>
+      <div><label>Пробег</label><input name="km" type="number"></div>
+      <div><label>VIN</label><input name="vin"></div>
+      <div><label>Цена клиента</label><input name="priceAsk" type="number"></div>
+      <div><label>Наше предложение</label><input name="priceOffer" type="number" placeholder="рынок минус 10–15%"></div>
+      <div><label>Телефон</label><input name="phone" required placeholder="+7 995 …"></div>
+      <div><label>Город</label><input name="city" value="Иркутск"></div>
+      <div><label>Кто ведёт</label><input name="who"></div>
+      <div style="grid-column:1/-1"><label>Ссылка на объявление</label><input name="url"></div>
+      <div style="grid-column:1/-1"><label>Заметка</label><textarea name="notes" rows="2"></textarea></div>
+    </div>
+    <div class="bar" style="margin-top:12px">
+      <button type="submit" class="btn-red">Сохранить</button>
+      <button type="button" class="btn-ghost" id="btnCancel">Закрыть</button>
+      <button type="button" class="btn-ghost" id="btnDel" style="margin-left:auto;color:var(--red)">Удалить</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="dlgCar">
+  <form id="formCar">
+    <h3>Авто на склад</h3>
+    <input type="hidden" name="id">
+    <div class="grid">
+      <div><label>Марка</label><input name="brand" required></div>
+      <div><label>Модель</label><input name="model"></div>
+      <div><label>Год</label><input name="year" type="number"></div>
+      <div><label>Выкуп, ₽</label><input name="buy" type="number"></div>
+      <div><label>Продажа, ₽</label><input name="sale" type="number"></div>
+      <div><label>Дата выкупа</label><input name="inDate" type="date"></div>
+      <div><label>Статус</label>
+        <select name="status"><option>В наличии</option><option>Бронь</option><option>Продано</option><option>Опт</option></select></div>
+      <div style="grid-column:1/-1"><label>Заметка</label><textarea name="notes" rows="2"></textarea></div>
+    </div>
+    <div class="bar" style="margin-top:12px">
+      <button type="submit" class="btn-red">Сохранить</button>
+      <button type="button" class="btn-ghost" id="btnCarCancel">Закрыть</button>
+    </div>
+  </form>
+</dialog>
+<input type="file" id="fileIn" accept="application/json" hidden>
+
+<script>
+const KEY='avtoprais-crm-v1';
+const STAT=['Новая','Перезвон','Осмотр','Цена','Выкупили','Отказ','Комиссия'];
+const TYPES=['Выкуп','Продажа','Trade-in','Комиссия','Под заказ'];
+const load=()=>JSON.parse(localStorage.getItem(KEY)||'{"leads":[],"stock":[]}');
+const save=d=>localStorage.setItem(KEY,JSON.stringify(d));
+let db=load();
+const $=id=>document.getElementById(id);
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+const money=n=>n?Number(n).toLocaleString('ru-RU')+' ₽':'—';
+const phoneLink=p=>{
+  const d=String(p||'').replace(/\D/g,'');
+  if(d.length<10) return p||'';
+  const n=d.length===11?d:'7'+d;
+  return `<a class="wa" href="https://wa.me/${n}" target="_blank">${p}</a>`;
+};
+const badge=s=>{
+  const c=s==='Новая'?'s-new':s==='Выкупили'||s==='Продано'?'s-deal':s==='Отказ'?'s-no':s==='Осмотр'||s==='Цена'?'s-look':'s-call';
+  return `<span class="badge ${c}">${s}</span>`;
+};
+function fillSelect(el,arr){arr.forEach(v=>{const o=document.createElement('option');o.value=o.textContent=v;el.appendChild(o);});}
+fillSelect($('fStatus'),STAT); fillSelect($('fType'),TYPES);
+
+function kpis(){
+  const today=new Date().toISOString().slice(0,10);
+  const L=db.leads, S=db.stock;
+  const newL=L.filter(x=>x.status==='Новая').length;
+  const hot=L.filter(x=>x.status==='Новая' && (Date.now()-x.ts)>15*60*1000).length;
+  const deals=L.filter(x=>x.status==='Выкупили' && (x.saved||'').slice(0,10)===today).length;
+  const stock=S.filter(x=>x.status==='В наличии').length;
+  const old=S.filter(x=>{
+    if(x.status!=='В наличии'||!x.inDate) return false;
+    return (Date.now()-new Date(x.inDate).getTime())>30*864e5;
+  }).length;
+  $('kpis').innerHTML=`
+    <div class="kpi"><b>${newL}</b><span>новых заявок</span></div>
+    <div class="kpi"><b>${hot}</b><span>ждут &gt;15 мин</span></div>
+    <div class="kpi"><b>${deals}</b><span>выкупили сегодня</span></div>
+    <div class="kpi"><b>${stock}</b><span>авто на складе</span></div>
+    <div class="kpi"><b>${old}</b><span>склад &gt;30 дней</span></div>`;
+}
+
+function renderLeads(){
+  const st=$('fStatus').value, tp=$('fType').value, q=$('fQ').value.trim().toLowerCase();
+  const rows=db.leads.filter(x=>{
+    if(st && x.status!==st) return false;
+    if(tp && x.type!==tp) return false;
+    if(q){
+      const t=[x.brand,x.model,x.phone,x.vin,x.who,x.notes].join(' ').toLowerCase();
+      if(!t.includes(q)) return false;
+    }
+    return true;
+  }).sort((a,b)=>b.ts-a.ts);
+  $('tblLeads').innerHTML=`<tr><th>Когда</th><th>Тип</th><th>Авто</th><th>Клиент</th><th>Цена</th><th>Статус</th><th></th></tr>`+
+    (rows.map(x=>{
+      const wait=x.status==='Новая' && (Date.now()-x.ts)>15*60*1000;
+      const cls=wait?'hot':'';
+      const when=new Date(x.ts).toLocaleString('ru-RU',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
+      return `<tr class="${cls}" data-id="${x.id}">
+        <td>${when}<br><small>${x.source||''}</small></td>
+        <td>${x.type||''}<br><small>${x.urgency||''}</small></td>
+        <td><b>${x.brand||''} ${x.model||''}</b><br><small>${x.year||''} · ${x.km?Number(x.km).toLocaleString('ru-RU')+' км':''} ${x.vin||''}</small></td>
+        <td>${phoneLink(x.phone)}<br><small>${x.city||''} · ${x.who||''}</small></td>
+        <td>хочет ${money(x.priceAsk)}<br><small>мы ${money(x.priceOffer)}</small></td>
+        <td>${badge(x.status)}</td>
+        <td><button class="btn-ghost" data-edit="${x.id}">Открыть</button></td>
+      </tr>`;
+    }).join('')||'<tr><td colspan="7">Заявок нет. Нажмите «+ Заявка».</td></tr>');
+}
+
+function daysOn(d){
+  if(!d) return '—';
+  return Math.max(0,Math.floor((Date.now()-new Date(d).getTime())/864e5))+' дн.';
+}
+function renderStock(){
+  const rows=db.stock.slice().sort((a,b)=>(a.inDate||'').localeCompare(b.inDate||''));
+  $('tblStock').innerHTML=`<tr><th>Авто</th><th>Выкуп</th><th>Продажа</th><th>На складе</th><th>Статус</th><th></th></tr>`+
+    (rows.map(x=>{
+      const n=x.inDate?Math.floor((Date.now()-new Date(x.inDate).getTime())/864e5):0;
+      const cls=x.status==='В наличии'&&n>30?'stale':'';
+      return `<tr class="${cls}" data-car="${x.id}">
+        <td><b>${x.brand||''} ${x.model||''}</b><br><small>${x.year||''}</small></td>
+        <td>${money(x.buy)}</td><td>${money(x.sale)}</td>
+        <td>${daysOn(x.inDate)}</td><td>${badge(x.status)}</td>
+        <td><button class="btn-ghost" data-caredit="${x.id}">Открыть</button></td></tr>`;
+    }).join('')||'<tr><td colspan="6">Склад пуст.</td></tr>');
+}
+function renderKpi(){
+  const L=db.leads, S=db.stock;
+  $('kpiText').innerHTML=`<p><b>Правило цены:</b> выкуп = рынок Иркутска минус 10–15%. Финал после осмотра.</p>
+    <p>Заявок всего: ${L.length}. Выкупили: ${L.filter(x=>x.status==='Выкупили').length}. Отказ: ${L.filter(x=>x.status==='Отказ').length}.</p>
+    <p>Склад: ${S.filter(x=>x.status==='В наличии').length} в наличии.
+    Старше 30 дней — смотреть опт.</p>
+    <p>Клиенту по выкупу: WhatsApp <b>+7 995 050-06-00</b>.</p>`;
+}
+function draw(){kpis();renderLeads();renderStock();renderKpi();}
+
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');
+  ['leads','stock','kpi'].forEach(t=>$('tab-'+t).classList.toggle('hide',b.dataset.tab!==t));
+});
+$('fStatus').onchange=$('fType').onchange=$('fQ').oninput=renderLeads;
+
+function openLead(id){
+  const f=$('formLead'); f.reset();
+  $('btnDel').style.display=id?'inline-block':'none';
+  $('dlgTitle').textContent=id?'Заявка':'Новая заявка';
+  if(id){
+    const x=db.leads.find(i=>i.id===id); if(!x) return;
+    Object.keys(x).forEach(k=>{if(f[k]) f[k].value=x[k]??'';});
+  }
+  $('dlg').showModal();
+}
+$('btnAdd').onclick=()=>openLead();
+$('btnCancel').onclick=()=>$('dlg').close();
+$('tblLeads').onclick=e=>{
+  const id=e.target.dataset.edit; if(id) openLead(id);
+};
+$('formLead').onsubmit=e=>{
+  e.preventDefault();
+  const f=e.target, o=Object.fromEntries(new FormData(f));
+  if(o.id){
+    const i=db.leads.findIndex(x=>x.id===o.id);
+    db.leads[i]={...db.leads[i],...o};
+  }else{
+    o.id=uid(); o.ts=Date.now(); o.saved=new Date().toISOString();
+    db.leads.unshift(o);
+  }
+  o.saved=new Date().toISOString();
+  if(!o.ts) o.ts=Date.now();
+  save(db); $('dlg').close(); draw();
+};
+$('btnDel').onclick=()=>{
+  const id=$('formLead').id.value;
+  if(!id||!confirm('Удалить заявку?')) return;
+  db.leads=db.leads.filter(x=>x.id!==id); save(db); $('dlg').close(); draw();
+};
+
+function openCar(id){
+  const f=$('formCar'); f.reset();
+  if(id){const x=db.stock.find(i=>i.id===id); if(x) Object.keys(x).forEach(k=>{if(f[k]) f[k].value=x[k]??'';});}
+  else f.inDate.value=new Date().toISOString().slice(0,10);
+  $('dlgCar').showModal();
+}
+$('btnCar').onclick=()=>openCar();
+$('btnCarCancel').onclick=()=>$('dlgCar').close();
+$('tblStock').onclick=e=>{const id=e.target.dataset.caredit; if(id) openCar(id);};
+$('formCar').onsubmit=e=>{
+  e.preventDefault();
+  const o=Object.fromEntries(new FormData(e.target));
+  if(o.id){const i=db.stock.findIndex(x=>x.id===o.id); db.stock[i]={...db.stock[i],...o};}
+  else{o.id=uid(); db.stock.push(o);}
+  save(db); $('dlgCar').close(); draw();
+};
+
+$('btnSave').onclick=()=>{
+  const blob=new Blob([JSON.stringify(db,null,2)],{type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='avtoprais-crm-'+new Date().toISOString().slice(0,10)+'.json'; a.click();
+};
+$('btnLoad').onclick=()=>$('fileIn').click();
+$('fileIn').onchange=e=>{
+  const file=e.target.files[0]; if(!file) return;
+  const r=new FileReader();
+  r.onload=()=>{try{db=JSON.parse(r.result); if(!db.leads) db.leads=[]; if(!db.stock) db.stock=[]; save(db); draw();}catch(err){alert('Файл не открылся');}};
+  r.readAsText(file);
+};
+$('btnCsv').onclick=()=>{
+  const head=['Дата','Тип','Источник','Марка','Модель','Год','Пробег','VIN','Телефон','Цена клиента','Наше','Статус','Кто','Заметка'];
+  const lines=db.leads.map(x=>[new Date(x.ts).toLocaleString('ru-RU'),x.type,x.source,x.brand,x.model,x.year,x.km,x.vin,x.phone,x.priceAsk,x.priceOffer,x.status,x.who,x.notes].map(v=>`"${String(v||'').replace(/"/g,'""')}"`).join(';'));
+  const blob=new Blob(['\uFEFF'+head.join(';')+'\n'+lines.join('\n')],{type:'text/csv;charset=utf-8'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='avtoprais-zayavki.csv'; a.click();
+};
+draw();
+</script>
+</body>
+</html>
