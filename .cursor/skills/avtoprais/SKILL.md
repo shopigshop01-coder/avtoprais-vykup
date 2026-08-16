@@ -12,7 +12,8 @@ description: >-
 Салон **срочного выкупа** авто с пробегом. Город: Иркутск.
 Адрес: **г. Иркутск, ул. Маяковского, 69Б**.
 Телефон выкупа: **+7 995 050-06-00**. Второй: **+7 914 899-90-88**.
-Сайт: https://site1.online/avtoprais-vikup/ (домен https://avtoprais-vykup.ru — у Никиты в текстах, SSL пока не открылся).
+Сайт: https://site1.online/avtoprais-vikup/ — **основной, название не менять: АвтоПрайс**.
+Домен https://avtoprais-vykup.ru — у Никиты в текстах, SSL пока не открылся. GitHub Pages — запасная копия, не замена.
 Контакты: https://taplink.cc/avtoprais1
 Бот: https://t.me/best_services_in_one_place_bot
 Канал: https://t.me/AvtoPrais038
